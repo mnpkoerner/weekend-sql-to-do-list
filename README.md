@@ -1,14 +1,16 @@
-# Project Name
+# Weekend Project: To Do List
 
-Weekend Project: To Do List
+A full-stack application!
 
 ## Description
 
 Weekend assignment from Prime Academy full-stack engineering This is my first full-stack application! The goal of the project was to build a full-stack to do list. Full CRUD! They challenged us to build a dynamic UI, comprehensive client-side logic, and a database for permanent data storage. My iteration will display two different tables: uncompleted and completed tasks. You're able to sort the tables in a few different ways, delete information from the database, and mark when tasks are complete. You're also able to compare the ammount of time you estimate an activity to take with the actual time the activity took, hopefully teaching you how best to estimate your time and manage your day!
 
+It helps me to prioritize my goals in three different categories: short term, mid term, and long term. I like to get my short term goals done by the end of the day. I try to check off one or two mid term goals whenever I can. And I try to get one long term goal finished every week.
+
 ## Screen Shots
 
-This is what you'll see when you load the app (of course, you can use the placeholder data in database.sql or instert your own)
+This is what you'll see when you load the app (you can use the placeholder data in database.sql or instert your own)
 ![To Do](/screenshots/red.png)
 This is what you'll see when you toggle the app to view your completed tasks
 ![Complete](/screenshots/green.png)
@@ -41,6 +43,3 @@ This is what you'll see when you toggle the app to view your completed tasks
 
 ## Acknowledgement
 Huge thanks to everyone over at [Prime Digital Academy](https://primeacademy.io/) for teaching me the skills to pull of my first CRUD app!
-
-
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
