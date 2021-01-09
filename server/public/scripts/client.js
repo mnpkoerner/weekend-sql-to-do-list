@@ -5,21 +5,40 @@ function readyNow() {
     getTasks();
     $(document).on('click', '.completeButton', updateTasks);
     $(document).on('click', '#submitButton', addTask);
-    $(document).on('click', '.deleteButton', deleteTask)
+    $(document).on('click', '.deleteButton', deleteValidation)
+    $(document).on('click', '#toggleButton', toggleVisibility)
 }
 
+function deleteValidation() {
+    let id = $(this).data('id');
+    alert('Once delted, this task will be completly removed')
+    const confirmation = prompt('Type \'yes\' to delete, type \'no\' to keep');
+    if (confirmation === 'yes') {
+        deleteTask(id)
+    }
+    else {
+        return;
+    }
+}
+
+function toggleVisibility() {
+    $('#undoneTable').toggleClass('invisible')
+    $('#doneTable').toggleClass('invisible')
+    $('#toggleButton').toggleClass('complete')
+    $('#toggleButton').toggleClass('incomplete')
+}
 //DELETE object from database
 //append updated DOM
-function deleteTask(){
-    const id = $(this).data('id');
+function deleteTask(data) {
+    const id = data;
     console.log('in DELETE at:', id);
     $.ajax({
         type: 'DELETE',
         url: `/tasks/${id}`
-    }).then(function(response){
+    }).then(function (response) {
         console.log(response);
         getTasks();
-    }).catch(function(error){
+    }).catch(function (error) {
         console.log(error);
         alert('There was a problem deleting your task!')
     })
@@ -111,11 +130,13 @@ function renderTasksOnDom(tasks) {
     $('#doneTarget').empty();
     for (chore of tasks) {
         if (chore.status === true) {
+            let diff = chore.est_time - chore.act_time;
             $('#doneTarget').append(`
                 <tr data-id="${chore.id}">
                     <td>${chore.task}</td>
                     <td>${chore.est_time}</td>
                     <td>${chore.act_time}</td>
+                    <td>${diff}</td>
                     <td><button data-id="${chore.id}" class="deleteButton">DELETE</button></td>
                 </tr>
             `);

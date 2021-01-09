@@ -45,14 +45,20 @@
 
     </section>
 
+    <div id="toggleSection">
+        <label for=toggleButton>Switch Table:</label>
+        <button id="toggleButton" class="complete">TOGGLE</button>
+    </div>
+
     <main style="overflow-x: auto;">
         <table id="undoneTable">
+            <caption class="tableCaption">Tasks to be Completed:</caption>
             <thead id="headOne">
                 <tr>
                     <th>Task</th>
                     <th>Priority</th>
                     <th>Estimated Time (minutes)</th>
-                    <th>Mark as Complete</th>
+                    <th>Completed?</th>
                     <th>Delete?</th>
                 </tr>
             </thead>
@@ -60,12 +66,14 @@
             </tbody>
         </table>
 
-        <table id="doneTable">
+        <table id="doneTable" class="invisible">
+            <caption class="tableCaption">Completed Tasks</caption>
             <thead id="headTwo">
                 <tr>
                     <th>Task</th>
                     <th>Estimated Time (minutes)</th>
                     <th>Actual Time (minutes)</th>
+                    <th>Difference +/- (minutes)</th>
                     <th>Delete?</th>
                 </tr>
             </thead>

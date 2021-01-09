@@ -22,10 +22,10 @@ h1{
 }
 
 tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: aliceblue;
 }
 tbody tr:nth-child(odd) {
-    background-color: aliceblue;
+    background-color: palegoldenrod;
 }
 
 ::placeholder, select, input, button {
@@ -42,7 +42,25 @@ td, th{
     border:1px solid black;
 
 }
+.invisible{
+    display: none;
+}
 
+.complete{
+    background-color: green;
+}
+.incomplete{
+    background-color:red;
+}
+
+#undoneTable caption {
+    background-color: red;
+    color: white;
+}
+#doneTable caption {
+    background-color: green;
+    color: white;
+}
 
 
 .deleteButton:hover{

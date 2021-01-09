@@ -1,0 +1,8 @@
+1. add sort buttons above each column, have it send different GET requests to DOM
+that sorts data by time, priority
+
+2. STYLE IT
+
+3. Sweet alerts
+
+
