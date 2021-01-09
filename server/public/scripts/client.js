@@ -3,8 +3,74 @@ $(document).ready(readyNow);
 function readyNow() {
     console.log('jq ready')
     getTasks();
+    $(document).on('click', '.completeButton', updateTasks);
+    $(document).on('click', '#submitButton', addTask);
 }
 
+//package all data in object
+//send to database
+//update DOM
+function addTask() {
+    console.log('in add');
+    let sendData = {
+        task: $('#taskIn').val(),
+        priority: $('#priorityIn').val(),
+        est: $('#estTimeIn').val()
+    };
+    console.log(sendData);
+    let readyData = validate(sendData);
+    if (readyData) {
+        console.log("all inputs entered")
+        $.ajax({
+            type: 'POST',
+            url: '/tasks',
+            data: sendData
+        }).then(function (response) {
+            console.log(response);
+            getTasks();
+        }).catch(function (error) {
+            console.log(error);
+            alert('There was an error submitting your information')
+        })
+    }
+}
+//form validation, requires that all fields be entered in
+//the form before data is sent to the database
+function validate(obj) {
+    if (!obj.task || (!obj.priority || !obj.est)) {
+        alert('Please information in all fields');
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+//Will contain PUT request
+//go to database
+//update boolean from false to true
+//repopulate DOM with new data
+function updateTasks() {
+    let id = $(this).data('id');
+    console.log('in update, id:', id);
+    let completeTime = prompt('How many minutes did this take?');
+    if (!parseInt(completeTime)) {
+        completeTime = 0;
+    }
+    const sendData = { time: parseInt(completeTime) }
+    console.log(sendData)
+    $.ajax({
+        type: 'PUT',
+        url: `/tasks/${id}`,
+        data: sendData
+    }).then(function (response) {
+        console.log(response);
+        getTasks()
+    }).catch(function (error) {
+        console.log(error);
+        alert('There was an error updating your list!')
+    })
+
+}
 //AJAX GET request, goes to /tasks and populates DOM
 function getTasks() {
     $.ajax({
@@ -15,7 +81,7 @@ function getTasks() {
         renderTasksOnDom(response);
     }).catch(function (error) {
         console.log(error);
-        alert('There was an error updating your to do list!')
+        alert('There was an error updating your list!')
     });
 }
 
@@ -30,6 +96,7 @@ function renderTasksOnDom(tasks) {
             $('#doneTarget').append(`
                 <tr data-id="${chore.id}">
                     <td>${chore.task}</td>
+                    <td>${chore.est_time}</td>
                     <td>${chore.act_time}</td>
                 </tr>
             `);
@@ -40,9 +107,12 @@ function renderTasksOnDom(tasks) {
                     <td>${chore.task}</td>
                     <td>${chore.priority}</td>
                     <td>${chore.est_time}</td>
-                    <td><button data-id="${chore.id}">Mark Complete</button></td>
+                    <td><button data-id="${chore.id}" class="completeButton">Mark Complete</button></td>
                 </tr>
             `)
         }
     }
+    $('input').val('');
+    $('select').val('');
+
 }

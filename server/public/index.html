@@ -16,25 +16,25 @@
     </header>
 
     <section>
-        <form>
-            <input id="taskIn" type="text" placeholder="Task">
-            <select id="priorityIn">
-                <option value="" disabled selected>Priority</option>
-                <option value="Short term">Short term</option>
-                <option value="Mid term">Mid term</option>
-                <option value="Long Term">Long term</option>
-            </select>
-            <select id="estTimeIn">
-                <option value="" disabled selected>Estimated time</option>
-                <option value="0">Less than 15 minutes</option>
-                <option value="15">15 minutes</option>
-                <option value="30">30 minutes</option>
-                <option value=45>45 minutes</option>
-                <option value="60">60 minutes</option>
-                <option value="75">Over 60 minutes</option>
-            </select>
-            <button id="submitButton" type="submit">Submit</button>
-        </form>
+
+        <input id="taskIn" type="text" placeholder="Task">
+        <select id="priorityIn" required>
+            <option value="" disabled selected>Priority</option>
+            <option value="Short term">Short term</option>
+            <option value="Mid term">Mid term</option>
+            <option value="Long Term">Long term</option>
+        </select>
+        <select id="estTimeIn" required>
+            <option value="" disabled selected>Estimated time</option>
+            <option value="0">Less than 15 minutes</option>
+            <option value="15">15 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value=45>45 minutes</option>
+            <option value="60">60 minutes</option>
+            <option value="75">Over 60 minutes</option>
+        </select>
+        <button id="submitButton">Submit</button>
+
     </section>
 
     <main>
@@ -43,7 +43,7 @@
                 <tr>
                     <th>Task</th>
                     <th>Priority</th>
-                    <th>Estimated Time</th>
+                    <th>Estimated Time (minutes)</th>
                     <th>Mark as Complete</th>
                 </tr>
             </thead>
@@ -55,7 +55,8 @@
             <thead>
                 <tr>
                     <th>Task</th>
-                    <th>Time</th>
+                    <th>Estimated Time (minutes)</th>
+                    <th>Actual Time (minutes)</th>
                 </tr>
             </thead>
             <tbody id="doneTarget">
