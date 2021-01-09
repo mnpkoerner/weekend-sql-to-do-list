@@ -7,6 +7,9 @@
     <link href="styles/style.css" rel="stylesheet">
     <script src="vendors/jquery-3.5.1.js"></script>
     <script src="scripts/client.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
     <title>Document</title>
 </head>
 
@@ -14,6 +17,10 @@
     <header>
         <h1>To Do List:</h1>
     </header>
+
+    <nav>
+        <!-- controls to sort!! -->
+    </nav>
 
     <section>
 
@@ -26,20 +33,21 @@
         </select>
         <select id="estTimeIn" required>
             <option value="" disabled selected>Estimated time</option>
-            <option value="0">Less than 15 minutes</option>
+            <option value="5">5 minutes</option>
             <option value="15">15 minutes</option>
             <option value="30">30 minutes</option>
-            <option value=45>45 minutes</option>
+            <option value="45">45 minutes</option>
             <option value="60">60 minutes</option>
-            <option value="75">Over 60 minutes</option>
+            <option value="90">90 minutes</option>
+            <option value="120">120 minutes</option>
         </select>
         <button id="submitButton">Submit</button>
 
     </section>
 
-    <main>
-        <table>
-            <thead>
+    <main style="overflow-x: auto;">
+        <table id="undoneTable">
+            <thead id="headOne">
                 <tr>
                     <th>Task</th>
                     <th>Priority</th>
@@ -52,8 +60,8 @@
             </tbody>
         </table>
 
-        <table>
-            <thead>
+        <table id="doneTable">
+            <thead id="headTwo">
                 <tr>
                     <th>Task</th>
                     <th>Estimated Time (minutes)</th>

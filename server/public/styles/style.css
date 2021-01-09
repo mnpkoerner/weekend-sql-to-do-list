@@ -1,3 +1,97 @@
 body {
-    background-color: dodgerblue;
+    background-color: rgb(240, 198, 176);
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+}
+header{
+    background-color: firebrick;
+}
+h1{
+    width: 50%;
+    font-size: 4vw;
+    text-align: center;
+    margin: auto;
+}
+#headOne{
+    color:white;
+    background-color: black;;
+}
+#headTwo{
+    color:white;
+    background-color: black;;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tbody tr:nth-child(odd) {
+    background-color: aliceblue;
+}
+
+::placeholder, select, input, button {
+    font-family: 'Poppins', sans-serif;
+}
+
+table {
+    text-align: center;
+    width: 80%;
+    margin: 10px auto;
+    border-collapse: collapse;
+}
+td, th{
+    border:1px solid black;
+
+}
+
+
+
+.deleteButton:hover{
+    background-color:red;
+    color: white
+}
+.deleteButton{
+    background-color:white;
+    color: red;
+    border-radius: none;
+    border: none;
+    font-weight: bold;
+}
+
+#submitButton:hover{
+    background-color:goldenrod;
+    color: white
+}
+#submitButton{
+    background-color:white;
+    color: goldenrod;
+    border-radius: none;
+    border: none;
+    font-weight: bold;
+}
+.completeButton:hover{
+    background-color: green;
+    color: white
+}
+.completeButton{
+    background-color:white;
+    color: green;
+    border-radius: none;
+    border: none;
+    font-weight: bold;
+}
+
+
+
+section {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 25px auto;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+input, select, #submitButton{
+    margin: 4px;
 }
