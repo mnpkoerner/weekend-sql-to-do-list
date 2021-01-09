@@ -16,7 +16,6 @@ function sortTables() {
     const sort = $('#sortBy').val();
     console.log(sort)
     switch (sort) {
-        //all will use renderTasksOnDom(response);
         case 'priority':
             sortPriority()
             break;
@@ -94,7 +93,7 @@ function sortTimeRev() {
         alert('There was an error sorting your data!')
     })
 }
-
+//sorts a-z
 function sortAlph() {
     console.log('alph sort')
     $.ajax({
@@ -107,7 +106,7 @@ function sortAlph() {
         alert('There was an error sorting your data!')
     })
 }
-
+//sorts z-a
 function sortRevAlph() {
     console.log('rev sort')
     $.ajax({
@@ -125,7 +124,8 @@ function sortRevAlph() {
 
 
 
-
+//checks with the user before deleting anything from the database
+//requires user type 'yes' or 'no' in a prompt
 function deleteValidation() {
     let id = $(this).data('id');
     alert('Once deleted, this task will be completly removed')
@@ -137,6 +137,8 @@ function deleteValidation() {
         return;
     }
 }
+//changes the way things appear in the DOM depending
+//on which table you're viewing
 
 function toggleVisibility() {
     $('#undoneTable').toggleClass('invisible')
