@@ -11,7 +11,58 @@
 </head>
 
 <body>
-    working
+    <header>
+        <h1>To Do List:</h1>
+    </header>
+
+    <section>
+        <form>
+            <input id="taskIn" type="text" placeholder="Task">
+            <select id="priorityIn">
+                <option value="" disabled selected>Priority</option>
+                <option value="Short term">Short term</option>
+                <option value="Mid term">Mid term</option>
+                <option value="Long Term">Long term</option>
+            </select>
+            <select id="estTimeIn">
+                <option value="" disabled selected>Estimated time</option>
+                <option value="0">Less than 15 minutes</option>
+                <option value="15">15 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value=45>45 minutes</option>
+                <option value="60">60 minutes</option>
+                <option value="75">Over 60 minutes</option>
+            </select>
+            <button id="submitButton" type="submit">Submit</button>
+        </form>
+    </section>
+
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Priority</th>
+                    <th>Estimated Time</th>
+                    <th>Mark as Complete</th>
+                </tr>
+            </thead>
+            <tbody id="undoneTarget">
+            </tbody>
+        </table>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody id="doneTarget">
+            </tbody>
+        </table>
+    </main>
+
 </body>
 
 </html>
