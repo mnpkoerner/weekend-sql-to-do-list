@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/style.css" rel="stylesheet">
+    <script src="vendors/jquery-3.5.1.js"></script>
+    <script src="scripts/client.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>To Do List:</h1>
+    </header>
+
+    <nav>
+        <!-- controls to sort!! -->
+    </nav>
+
+    <section>
+
+        <input id="taskIn" type="text" placeholder="Task">
+        <select id="priorityIn" required>
+            <option value="" disabled selected>Priority</option>
+            <option value="Short term">Short term</option>
+            <option value="Mid term">Mid term</option>
+            <option value="Long Term">Long term</option>
+        </select>
+        <select id="estTimeIn" required>
+            <option value="" disabled selected>Estimated time</option>
+            <option value="5">5 minutes</option>
+            <option value="15">15 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value="45">45 minutes</option>
+            <option value="60">60 minutes</option>
+            <option value="90">90 minutes</option>
+            <option value="120">120 minutes</option>
+        </select>
+        <button id="submitButton">Submit</button>
+
+    </section>
+
+    <div id="toggleSection">
+        <label for=toggleButton>Switch Table:</label>
+        <button id="toggleButton" class="complete">TOGGLE</button>
+    </div>
+
+    <main style="overflow-x: auto;">
+        <table id="undoneTable">
+            <caption class="tableCaption">Tasks to be Completed:</caption>
+            <thead id="headOne">
+                <tr>
+                    <th>Task</th>
+                    <th>Priority</th>
+                    <th>Estimated Time (minutes)</th>
+                    <th>Completed?</th>
+                    <th>Delete?</th>
+                </tr>
+            </thead>
+            <tbody id="undoneTarget">
+            </tbody>
+        </table>
+
+        <table id="doneTable" class="invisible">
+            <caption class="tableCaption">Completed Tasks</caption>
+            <thead id="headTwo">
+                <tr>
+                    <th>Task</th>
+                    <th>Estimated Time (minutes)</th>
+                    <th>Actual Time (minutes)</th>
+                    <th>Difference +/- (minutes)</th>
+                    <th>Delete?</th>
+                </tr>
+            </thead>
+            <tbody id="doneTarget">
+            </tbody>
+        </table>
+    </main>
+
+</body>
+
+</html>
