@@ -62,7 +62,25 @@ router.put('/:id', (req, res) => {
         })
 })
 
+//DELTE will take an incomplete or complete
+//task out of the database
 
+router.delete('/:id', (req, res) => {
+    console.log('in DELETE');
+    const id = req.params.id;
+    const queryText = `
+        DELETE FROM "tasks"
+        WHERE "id" = $1;
+    `;
+    pool.query(queryText, [id])
+        .then(function (response) {
+            console.log(response)
+            res.sendStatus(204);
+        }).catch(function (error) {
+            console.log(error);
+            res.sendStatus(500)
+        })
+})
 
 
 

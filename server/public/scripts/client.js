@@ -5,10 +5,28 @@ function readyNow() {
     getTasks();
     $(document).on('click', '.completeButton', updateTasks);
     $(document).on('click', '#submitButton', addTask);
+    $(document).on('click', '.deleteButton', deleteTask)
+}
+
+//DELETE object from database
+//append updated DOM
+function deleteTask(){
+    const id = $(this).data('id');
+    console.log('in DELETE at:', id);
+    $.ajax({
+        type: 'DELETE',
+        url: `/tasks/${id}`
+    }).then(function(response){
+        console.log(response);
+        getTasks();
+    }).catch(function(error){
+        console.log(error);
+        alert('There was a problem deleting your task!')
+    })
 }
 
 //package all data in object
-//send to database
+//POSTto database
 //update DOM
 function addTask() {
     console.log('in add');
@@ -98,6 +116,7 @@ function renderTasksOnDom(tasks) {
                     <td>${chore.task}</td>
                     <td>${chore.est_time}</td>
                     <td>${chore.act_time}</td>
+                    <td><button data-id="${chore.id}" class="deleteButton">DELETE</button></td>
                 </tr>
             `);
         }
@@ -108,6 +127,7 @@ function renderTasksOnDom(tasks) {
                     <td>${chore.priority}</td>
                     <td>${chore.est_time}</td>
                     <td><button data-id="${chore.id}" class="completeButton">Mark Complete</button></td>
+                    <td><button data-id="${chore.id}" class="deleteButton">DELETE</button></td>
                 </tr>
             `)
         }
