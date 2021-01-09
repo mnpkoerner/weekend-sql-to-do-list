@@ -18,8 +18,88 @@ router.get('/', (req, res) => {
         })
 })
 
+//sorts on priority
+router.get('/priority', (req, res) => {
+    console.log('sort by priority');
+    const queryText = `SELECT * FROM "tasks" ORDER BY "priority" DESC;`
+    pool.query(queryText)
+        .then(function (response) {
+            console.log(response);
+            res.send(response.rows);
+        }).catch(function (error) {
+            console.log(error);
+            res.sendStatus(500);
+        })
+})
+//sorts on priority reverse order
+router.get('/priorityRev', (req, res) => {
+    console.log('sort by priority rev');
+    const queryText = `SELECT * FROM "tasks" ORDER BY "priority" ASC;`
+    pool.query(queryText)
+        .then(function (response) {
+            console.log(response);
+            res.send(response.rows);
+        }).catch(function (error) {
+            console.log(error);
+            res.sendStatus(500);
+        })
+})
+//sorts by est_time short to long
+router.get('/time', (req, res) => {
+    console.log('sort by priority');
+    const queryText = `SELECT * FROM "tasks" ORDER BY "est_time" ASC;`
+    pool.query(queryText)
+        .then(function (response) {
+            console.log(response);
+            res.send(response.rows);
+        }).catch(function (error) {
+            console.log(error);
+            res.sendStatus(500);
+        })
+})
+//sorts by est_time long to short
+router.get('/timeRev', (req, res) => {
+    console.log('sort by priority');
+    const queryText = `SELECT * FROM "tasks" ORDER BY "est_time" DESC;`
+    pool.query(queryText)
+        .then(function (response) {
+            console.log(response);
+            res.send(response.rows);
+        }).catch(function (error) {
+            console.log(error);
+            res.sendStatus(500);
+        })
+})
+
+//sorts z-a
+router.get('/rev', (req, res) => {
+    console.log('sort by priority');
+    const queryText = `SELECT * FROM "tasks" ORDER BY "task" DESC;`
+    pool.query(queryText)
+        .then(function (response) {
+            console.log(response);
+            res.send(response.rows);
+        }).catch(function (error) {
+            console.log(error);
+            res.sendStatus(500);
+        })
+})
+//sorts z-a
+router.get('/alph', (req, res) => {
+    console.log('sort by priority');
+    const queryText = `SELECT * FROM "tasks" ORDER BY "task" ASC;`
+    pool.query(queryText)
+        .then(function (response) {
+            console.log(response);
+            res.send(response.rows);
+        }).catch(function (error) {
+            console.log(error);
+            res.sendStatus(500);
+        })
+})
+
 //sends new task to DB
-router.post('/', (req, res) => {
+router.post('/rev', (req, res) => {
     console.log('in /tasks POST');
     //constructing two variables to send data to server
     //data not enumerated will take default values

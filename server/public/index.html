@@ -14,40 +14,50 @@
 </head>
 
 <body>
-    <header>
-        <h1>To Do List:</h1>
+    <header class="reflectIncomplete">
+        <h1>TO DO</h1>
+        <h2>Add a new task below:</h2>
+
+        <section>
+
+            <input id="taskIn" type="text" placeholder="Task">
+            <select id="priorityIn" required>
+                <option value="" disabled selected>Priority</option>
+                <option value="Short term">Short term</option>
+                <option value="Mid term">Mid term</option>
+                <option value="Long Term">Long term</option>
+            </select>
+            <select id="estTimeIn" required>
+                <option value="" disabled selected>Estimated time</option>
+                <option value="5">5 minutes</option>
+                <option value="15">15 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value="45">45 minutes</option>
+                <option value="60">60 minutes</option>
+                <option value="90">90 minutes</option>
+                <option value="120">120 minutes</option>
+            </select>
+            <button id="submitButton">Submit</button>
+
+
+        </section>
     </header>
 
-    <nav>
-        <!-- controls to sort!! -->
-    </nav>
-
-    <section>
-
-        <input id="taskIn" type="text" placeholder="Task">
-        <select id="priorityIn" required>
-            <option value="" disabled selected>Priority</option>
-            <option value="Short term">Short term</option>
-            <option value="Mid term">Mid term</option>
-            <option value="Long Term">Long term</option>
-        </select>
-        <select id="estTimeIn" required>
-            <option value="" disabled selected>Estimated time</option>
-            <option value="5">5 minutes</option>
-            <option value="15">15 minutes</option>
-            <option value="30">30 minutes</option>
-            <option value="45">45 minutes</option>
-            <option value="60">60 minutes</option>
-            <option value="90">90 minutes</option>
-            <option value="120">120 minutes</option>
-        </select>
-        <button id="submitButton">Submit</button>
-
-    </section>
-
     <div id="toggleSection">
+        <p>Switch between your complete and incomplete tasks, or sort your list:</p>
         <label for=toggleButton>Switch Table:</label>
-        <button id="toggleButton" class="complete">TOGGLE</button>
+        <button id="toggleButton" class="complete" name="toggleButton">TOGGLE</button>
+        <label for="sortBy">Sort Tables:</label>
+        <select id="sortBy" required>
+            <option value="" disabled selected>Sort by:</option>
+            <option value="priority">Priority (short to long)</option>
+            <option value="priorityRev">Priority (long to short)</option>
+            <option value="estTime">Estimated Time (short to long)</option>
+            <option value="estTimeRev">Estimated Time (long to short)</option>
+            <option value="alphDesc">A-Z</option>
+            <option value="alphAsc">Z-A</option>
+        </select>
+        <button id="sortSubmit">Submit</button>
     </div>
 
     <main style="overflow-x: auto;">
