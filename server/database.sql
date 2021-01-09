@@ -9,7 +9,7 @@ CREATE TABLE "tasks"(
     "status" BOOLEAN DEFAULT false
 );
 
--- dummy data
+-- placeholder data
 
 INSERT INTO "tasks" ("task", "priority", "est_time")
 VALUES ('Take out garbage', 'Short term', 0),
