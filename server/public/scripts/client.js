@@ -7,11 +7,128 @@ function readyNow() {
     $(document).on('click', '#submitButton', addTask);
     $(document).on('click', '.deleteButton', deleteValidation)
     $(document).on('click', '#toggleButton', toggleVisibility)
+    $(document).on('click', '#sortSubmit', sortTables)
 }
+
+//checks value in dropdown, goes to specific URL to sort data
+//reappends DOM with data sorted per user's preference
+function sortTables() {
+    const sort = $('#sortBy').val();
+    console.log(sort)
+    switch (sort) {
+        //all will use renderTasksOnDom(response);
+        case 'priority':
+            sortPriority()
+            break;
+        case 'priorityRev':
+            sortPriorityRev()
+            break;
+        case 'estTime':
+            sortTime();
+            break;
+        case 'estTimeRev':
+            sortTimeRev();
+            break;
+        case 'alphDesc':
+            sortAlph()
+            break;
+        case 'alphAsc':
+            sortRevAlph();
+            break;
+        default:
+            console.log('no value')
+            return;
+    }
+}
+
+//sorts short to long
+function sortPriority() {
+    console.log('priority sort')
+    $.ajax({
+        type: 'GET',
+        url: '/tasks/priority',
+    }).then(function (response) {
+        renderTasksOnDom(response)
+    }).catch(function (error) {
+        console.log(error);
+        alert('There was an error sorting your data!')
+    })
+}
+
+//sorts long to short
+function sortPriorityRev() {
+    console.log('priority sort rev')
+    $.ajax({
+        type: 'GET',
+        url: '/tasks/priorityRev',
+    }).then(function (response) {
+        renderTasksOnDom(response)
+    }).catch(function (error) {
+        console.log(error);
+        alert('There was an error sorting your data!')
+    })
+}
+//sorts shortest to longest
+function sortTime() {
+    console.log('time sort')
+    $.ajax({
+        type: 'GET',
+        url: '/tasks/time',
+    }).then(function (response) {
+        renderTasksOnDom(response)
+    }).catch(function (error) {
+        console.log(error);
+        alert('There was an error sorting your data!')
+    })
+}
+//sorts longest to shortest
+function sortTimeRev() {
+    console.log('time sort')
+    $.ajax({
+        type: 'GET',
+        url: '/tasks/timeRev',
+    }).then(function (response) {
+        renderTasksOnDom(response)
+    }).catch(function (error) {
+        console.log(error);
+        alert('There was an error sorting your data!')
+    })
+}
+
+function sortAlph() {
+    console.log('alph sort')
+    $.ajax({
+        type: 'GET',
+        url: '/tasks/alph',
+    }).then(function (response) {
+        renderTasksOnDom(response)
+    }).catch(function (error) {
+        console.log(error);
+        alert('There was an error sorting your data!')
+    })
+}
+
+function sortRevAlph() {
+    console.log('rev sort')
+    $.ajax({
+        type: 'GET',
+        url: '/tasks/rev',
+    }).then(function (response) {
+        renderTasksOnDom(response)
+    }).catch(function (error) {
+        console.log(error);
+        alert('There was an error sorting your data!')
+    })
+}
+
+
+
+
+
 
 function deleteValidation() {
     let id = $(this).data('id');
-    alert('Once delted, this task will be completly removed')
+    alert('Once deleted, this task will be completly removed')
     const confirmation = prompt('Type \'yes\' to delete, type \'no\' to keep');
     if (confirmation === 'yes') {
         deleteTask(id)
@@ -26,6 +143,8 @@ function toggleVisibility() {
     $('#doneTable').toggleClass('invisible')
     $('#toggleButton').toggleClass('complete')
     $('#toggleButton').toggleClass('incomplete')
+    $('header').toggleClass('reflectComplete')
+    $('header').toggleClass('reflectIncomplete')
 }
 //DELETE object from database
 //append updated DOM

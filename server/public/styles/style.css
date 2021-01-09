@@ -1,11 +1,24 @@
 body {
-    background-color: rgb(240, 198, 176);
+    background-color: lightgray;
     font-family: 'Poppins', sans-serif;
     margin: 0px;
+    text-align: center;
 }
-header{
-    background-color: firebrick;
+h2{
+    padding: 4px;
+    margin: 4px;
 }
+
+.reflectComplete{
+    background-color: green;
+    color:white;
+
+}
+.reflectIncomplete{
+    background-color: red;
+    color:white;
+}
+
 h1{
     width: 50%;
     font-size: 4vw;
@@ -67,7 +80,11 @@ td, th{
     background-color:red;
     color: white
 }
-.deleteButton{
+.incomplete:hover{
+    background-color:red;
+    color: white
+}
+.deleteButton, .incomplete{
     background-color:white;
     color: red;
     border-radius: none;
@@ -75,11 +92,25 @@ td, th{
     font-weight: bold;
 }
 
+#toggleSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+    margin: auto;
+}
+
 #submitButton:hover{
     background-color:goldenrod;
     color: white
 }
-#submitButton{
+#sortSubmit:hover{
+    background-color:goldenrod;
+    color: white
+}
+
+#submitButton, #sortSubmit{
     background-color:white;
     color: goldenrod;
     border-radius: none;
@@ -90,7 +121,11 @@ td, th{
     background-color: green;
     color: white
 }
-.completeButton{
+.complete:hover{
+    background-color: green;
+    color: white
+}
+.completeButton, .complete{
     background-color:white;
     color: green;
     border-radius: none;
@@ -98,16 +133,18 @@ td, th{
     font-weight: bold;
 }
 
-
+button:focus{
+    border: none;
+    outline: none;
+}
 
 section {
     width: 50%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 25px auto;
+    margin: 5px auto 20px auto;
     padding: 20px;
-    border: 1px solid black;
 }
 
 input, select, #submitButton{
