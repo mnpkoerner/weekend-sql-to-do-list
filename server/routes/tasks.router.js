@@ -99,7 +99,7 @@ router.get('/alph', (req, res) => {
 })
 
 //sends new task to DB
-router.post('/rev', (req, res) => {
+router.post('/', (req, res) => {
     console.log('in /tasks POST');
     //constructing two variables to send data to server
     //data not enumerated will take default values
